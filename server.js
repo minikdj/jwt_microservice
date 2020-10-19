@@ -13,7 +13,7 @@ class HandlerGenerator {
     let password = req.body.password;
 
     if (username && password) {
-      db.getCredentials(username, password, (isValidUser) => {
+      db.checkCredentials(username, password, (isValidUser) => {
           if (isValidUser) {
             let token = jwt.sign({username: username},
               config.secret,

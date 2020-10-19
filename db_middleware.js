@@ -1,7 +1,7 @@
 let mysql = require('mysql');
 
 module.exports = {
-    getCredentials
+    checkCredentials
 };
 
 let connection = mysql.createConnection({
@@ -12,7 +12,7 @@ let connection = mysql.createConnection({
 
 });
 
-function getCredentials (username, password, callback) {
+function checkCredentials (username, password, callback) {
     connection.query('SELECT * FROM user_credentials WHERE username=\'' + username + '\' and password=\'' + password + '\'', (err, rows) => {
         if (err) {
             throw err
