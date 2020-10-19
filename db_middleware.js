@@ -1,14 +1,15 @@
 let mysql = require('mysql');
+let config = require('./config');
 
 module.exports = {
     checkCredentials
 };
 
 let connection = mysql.createConnection({
-        host: 'localhost',
-        user: 'root',
-        password: 'password',
-        database: 'jwt_auth'
+        host: config.dbHost,
+        user: config.dbUser,
+        password: config.dbPassword,
+        database: config.database
 
 });
 
@@ -17,6 +18,7 @@ function checkCredentials (username, password, callback) {
         if (err) {
             throw err
         } else {
+            // if username and password come up with a match, return true, else, return false
             if (rows.length > 0) {
                 callback(true)
             } else {
