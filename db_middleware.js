@@ -5,6 +5,7 @@ module.exports = {
     checkCredentials
 };
 
+// how do i access a DB without having the credentials stored in code?
 let connection = mysql.createConnection({
         host: config.dbHost,
         user: config.dbUser,

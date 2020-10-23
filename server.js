@@ -27,8 +27,7 @@ class HandlerGenerator {
               token: token
             });
           } else {
-            //res.send(403).json({
-            res.json({
+            res.status(403).json({
               success: false,
               message: 'Incorrect username or password'
             });
@@ -36,7 +35,7 @@ class HandlerGenerator {
 
       })
     } else {
-      res.send(400).json({
+      res.status(400).json({
         success: false,
         message: 'Authentication failed! Please check the request'
       });
